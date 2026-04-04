@@ -64,22 +64,21 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-16 pb-12">
         <div className="flex flex-col md:flex-row items-end justify-between gap-8">
           {/* Left — FLOKA big + Studio blur */}
-          <div className="flex-1">
+          <div className="flex-1 w-100% max-w-lg self-start">
             <h1
               ref={flokaRef}
-              className="text-white font-semibold  leading-none"
-              style={{ fontSize: 'clamp(80px, 12vw, 180px)', letterSpacing: '-2px' }}>
+              className=" md:text-[250px] text-[80px] font-normal capitalize leading-none tracking-[-7.5px] text-white"
+              style={{ fontFamily: 'Funnel_Display, sans-serif' }}>
               Floka
             </h1>
             <p
               ref={studioRef}
-              className="text-white font-semibold ml-44  uppercase tracking-[0.5em]"
+              className="font-[Funnel_Display] md:text-[96px] text-[42px] font-normal leading-none tracking-[-2.88px] text-white md:ml-74 md:-mt-7.5"
               style={{
-                fontSize: 'clamp(20px, 3vw, 40px)',
                 filter: 'blur(1.5px)',
                 opacity: 0.7,
-                marginTop: '-10px',
-                marginLight: '50px',
+
+                // marginLight: '50px',
               }}>
               Studio
             </p>
@@ -88,7 +87,7 @@ export default function Hero() {
           {/* Right — Card + bottom text */}
           <div ref={cardRef} className="flex flex-col gap-4 justify-end items-end">
             {/* Card */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full md:w-[500px]">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full md:w-105">
               <div className="flex items-stretch p-4 gap-4">
                 {/* Left — Author image */}
                 <div
@@ -126,9 +125,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Bottom text — card এর বাইরে */}
             {/* Bottom text */}
-            <div className="text-[18px] font-normal w-full md:w-[500px]">
+            <div className="text-[18px] font-normal w-full md:w-105">
               <p className="text-white font-medium leading-snug">
                 No cookie-cutter websites. No fluff.
               </p>

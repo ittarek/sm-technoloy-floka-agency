@@ -4,7 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const OverlyCard = () => {
+const OverlyCard = ({className}) => {
   const imageRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -29,8 +29,10 @@ const OverlyCard = () => {
     // overflow-visible দিয়ে image উপরে বের হবে
     <div
       ref={containerRef}
-      className="md:col-span-3 rounded-3xl relative bg-black MD:h-[25vh] "
-      style={{ minHeight: '500px', overflow: 'visible' }}>
+      className={` border  ${className}`}
+      style={{  overflow: 'visible' }}
+      
+    >
       {/* Image — উপরে কিছুটা বের হবে */}
       <div className="md:w-87.5">
         <img

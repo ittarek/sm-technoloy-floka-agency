@@ -6,14 +6,15 @@ const avatars = [
   'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-counter-img3.webp',
   'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-counter-img4.webp',
 ];
-export const Stats = ({ col1Ref }) => {
+export const Stats = ({ col1Ref, className }) => {
   return (
-    <div ref={col1Ref} className="bg-white rounded-3xl p-8 flex flex-col gap-6">
+    <div
+      ref={col1Ref}
+      className={`  ${className}`}
+      style={{ minHeight: '500px' }}>
       {/* Counter */}
       <div>
-        <p
-          className="text-black font-black leading-none"
-          style={{ fontSize: 'clamp(60px, 6vw, 90px)' }}>
+        <p className="text-[#0a0a0a] font-funnel text-[120px] font-normal leading-none tracking-[-3.6px]">
           <Counter target={25} />
           <span className="text-gray-300">+</span>
         </p>
@@ -22,7 +23,7 @@ export const Stats = ({ col1Ref }) => {
 
       <div className="w-full h-px bg-gray-100" />
 
-      <p className="text-gray-500 text-sm leading-relaxed">
+      <p className="text-[#666666] text-md leading-relaxed">
         Explore how we transform ideas into extraordinary digital experiences.
       </p>
 
@@ -36,11 +37,11 @@ export const Stats = ({ col1Ref }) => {
               key={i}
               src={src}
               alt=""
-              className="w-9 h-9 rounded-full border-2 border-white object-cover"
+              className="w-11 h-11 rounded-full border-2 border-white object-cover"
             />
           ))}
         </div>
-        <p className="text-black font-bold text-sm">1200+ happy users review</p>
+        <p className="text-black font-bold text-md">1200+ happy users review</p>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ function App() {
         <About />
         <Portfolio />
         <Services />
-        <MarqueeSection />
+        {/* <MarqueeSection /> */}
         <Team />
         <Testimonials />
         <Contact />

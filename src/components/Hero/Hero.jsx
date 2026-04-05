@@ -38,8 +38,9 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden rounded-3xl"
+      className="relative overflow-hidden rounded-3xl  "
       style={{
+        
         height: 'calc(100vh - 32px)',
         margin: '16px 32px 0 32px',
       }}>

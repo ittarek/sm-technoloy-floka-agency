@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { navItems } from './navItems';
 import { MobileFullMenu } from './MobileFullMenu';
+import { LogoIcon } from '../../icons/logoIcon';
+import { RotatingIcon } from '../Tools/RotatingIcon';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeMobileItem, setActiveMobileItem] = useState(null);
   const navRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const dropdownRefs = useRef({});
@@ -232,7 +233,7 @@ export default function Navbar() {
           {/* Hamburger */}
 
           <button
-            className="relative cursor-pointer p-2 flex items-center gap-2"
+            className=" hidden relative cursor-pointer p-2 md:flex items-center gap-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -289,64 +290,8 @@ export default function Navbar() {
                 );
               })}
             </div>
-
-            {/* close text */}
-            {/* {mobileOpen && (
-            <span
-              style={{
-                color: 'white',
-                fontSize: '14px',
-                fontWeight: '500',
-                letterSpacing: '0.05em',
-                userSelect: 'none',
-              }}>
-              Close
-            </span>
-          )} */}
           </button>
         </div>
-
-        {/* Hamburger Menu */}
-        {/* <div
-        ref={mobileMenuRef}
-        className="absolute top-full left-0 w-full bg-white shadow-lg py-8 px-8 origin-top"
-        style={{ opacity: 0, scaleY: 0 }}>
-        {navItems.map(item => (
-          <div key={item.label} className="border-b border-gray-100">
-            <button
-              className="w-full text-left py-4 text-black text-sm uppercase tracking-widest flex justify-between items-center"
-              onClick={() =>
-                setActiveMobileItem(activeMobileItem === item.label ? null : item.label)
-              }>
-              {item.label}
-              <svg
-                className={`w-4 h-4 transition-transform duration-300 ${activeMobileItem === item.label ? 'rotate-180' : ''}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${activeMobileItem === item.label ? 'max-h-96 pb-3' : 'max-h-0'}`}>
-              {item.children.map(child => (
-                <a
-                  key={child.label}
-                  href={child.href}
-                  className="block pl-4 py-2.5 text-gray-500 hover:text-black text-sm tracking-wider transition-colors duration-200"
-                  onClick={() => setMobileOpen(false)}>
-                  — {child.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div> */}
       </nav>{' '}
       {/* Full Screen Menu */}
       {mobileOpen && (
@@ -440,41 +385,11 @@ export default function Navbar() {
               <MobileFullMenu navItems={navItems} onClose={() => setMobileOpen(false)} />
 
               {/* Bottom right rotating button */}
-              <div className="absolute bottom-10 right-10">
-                <div className="relative w-32 h-32 flex items-center justify-center">
-                  {/* Rotating text border */}
-                  <svg
-                    className="absolute inset-0 w-full h-full animate-spin"
-                    style={{ animationDuration: '10s' }}
-                    viewBox="0 0 120 120">
-                    <defs>
-                      <path
-                        id="circle"
-                        d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"
-                      />
-                    </defs>
-                    <text className="fill-white/50" fontSize="9" letterSpacing="3">
-                      <textPath href="#circle">
-                        WANT IT TO SOUND LUXURIOUS, PLAYFUL / OR MORE /
-                      </textPath>
-                    </text>
-                  </svg>
-                  {/* Center icon */}
-                  <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
+              <div className=" absolute bottom-0 right-0">
+                <RotatingIcon
+                  className=" bottom-10 right-10 text-white fill-white"
+                  rotatingText="WANT IT TO SOUND LUXURIOUS, PLAYFUL / OR MORE /"
+                />
               </div>
             </div>
           </div>

@@ -68,12 +68,14 @@ export default function About() {
         <BigHeading ref={headingRef} />
 
         {/* Bottom — 3 columns layout */}
-        <div className="grid grid-cols-1 md:grid-cols-8 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-8 gap-3 items-stretch">
           {/* Col 1 — Stats */}
-          <div className="md:col-span-2">
+          <div
+            className="md:col-span-2 rounded-3xl "
+            style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}>
             <Stats
               col1Ref={col1Ref}
-              className="bg-white rounded-3xl p-6 h-full flex flex-col justify-between shadow-xl"
+              className="bg-white rounded-3xl  p-6 h-full flex flex-col justify-between "
             />
           </div>
 
@@ -86,15 +88,16 @@ export default function About() {
           </div>
 
           {/* Col 3 — Social + Skills */}
-          <div className="md:col-span-2">
+          <div
+            className="md:col-span-2 rounded-3xl"
+  >
             <SocialSection
               col3Ref={col3Ref}
               col4Ref={col4Ref}
-              className="bg-white rounded-3xl p-6 w-full h-full flex flex-col justify-between shadow-xl"
+              className=""
             />
           </div>
         </div>
-
         {/* Marquee */}
       </section>
       <Marquee />

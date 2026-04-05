@@ -60,12 +60,12 @@ const OverlyCard = ({className}) => {
         <img
           src="https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon1.svg"
           alt="award"
-          className="w-20 h-auto"
+          className="w-28 h-auto"
         />
         <img
           src="https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon2.svg"
           alt="award"
-          className="w-20 h-auto"
+          className="w-28 h-auto"
         />
       </div>
 

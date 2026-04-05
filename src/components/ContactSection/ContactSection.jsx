@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-export default function ContactSection() {
+export default function Contact() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const labelRef = useRef(null);

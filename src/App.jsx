@@ -8,6 +8,9 @@ import Team from './components/Team/Team';
 import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import TechSection from './components/TechSection/TechSection';
+import Insights from './components/Insights/insights';
+import FAQSection from './components/FAQSection/FAQSection';
 
 function App() {
   return (
@@ -19,9 +22,12 @@ function App() {
         <Portfolio />
         <Services />
         {/* <MarqueeSection /> */}
+        <TechSection />
         <Team />
+        <FAQSection />
         <Testimonials />
         <Contact />
+        <Insights />
       </div>
       <Footer />
     </>

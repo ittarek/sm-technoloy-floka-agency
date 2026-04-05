@@ -63,7 +63,7 @@ export default function About() {
 
   return (
     <>
-      <section ref={sectionRef} className="px-8 md:px-24 py-28 max-w-[1400px] mx-auto">
+      <section ref={sectionRef} className="px-8 md:px-24 py-28 max-w-350 mx-auto">
         {/* Top — small left text + big heading */}
         <BigHeading ref={headingRef} />
 
@@ -88,14 +88,8 @@ export default function About() {
           </div>
 
           {/* Col 3 — Social + Skills */}
-          <div
-            className="md:col-span-2 rounded-3xl"
-  >
-            <SocialSection
-              col3Ref={col3Ref}
-              col4Ref={col4Ref}
-              className=""
-            />
+          <div className="md:col-span-2 rounded-3xl">
+            <SocialSection col3Ref={col3Ref} col4Ref={col4Ref} className="" />
           </div>
         </div>
         {/* Marquee */}

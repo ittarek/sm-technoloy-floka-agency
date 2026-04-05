@@ -43,7 +43,8 @@ export const SocialSection = ({ col3Ref, col4Ref, className }) => {
               key={skill.label}
               label={skill.label}
               value={skill.value}
-              isActive={i === 1} // UI/UX active — black bg
+              isActive={i === 1}
+              isLast={i === skills.length - 1}
             />
           ))}
         </div>

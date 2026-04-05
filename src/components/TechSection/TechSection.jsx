@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FanCard from './FanCard';
+import { RightStateCard } from './RightStateCard';
+import FunHeroImage from './FunHeroImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,13 +172,7 @@ export default function TechSection() {
         ref={heroRef}
         className="max-w-7xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left: image */}
-        <div className="hero-image  sticky top-0 self-start">
-          <img
-            src="https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img6-500x600.webp"
-            alt="Team"
-            className="  object-cover rounded-2xl shadow-md"
-          />
-        </div>
+        <FunHeroImage />
 
         {/* Right: copy + stats */}
         <div className="flex flex-col gap-6" ref={statsRef}>
@@ -191,42 +187,48 @@ export default function TechSection() {
           </h2>
 
           {/* Stats row */}
-          <div className="grid grid-cols-2 gap-3">
-            {/* 2k card  + preview card left side card*/}
+          <div
+            className="grid gap-3 w-full"
+            style={{
+              gridTemplateColumns: '1fr 1fr',
+              maxWidth: '1040px',
+              margin: '0 auto',
+            }}>
+            {/* Left column */}
             <div className="flex flex-col gap-3">
-              {/* 2k */}
-              <div className="stats-card flex  justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2">
-                <p className="text-lg text-gray-600 font-semibold  leading-tight">
+              {/* 2k — small card */}
+              <div
+                className="stats-card flex justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2"
+                style={{ height: '110px' }}>
+                <p className="text-lg text-gray-600 font-semibold leading-tight">
                   Successful projects completed
                 </p>
                 <p className="text-3xl flex items-center font-semibold text-gray-900 mt-1">
                   2k <span className="text-gray-400">+</span>
                 </p>
               </div>
-              {/* Preview card — full width */}
-              <FanCard />
+
+              {/* FanCard — big card */}
+              <div style={{ height: '380px' }}>
+                <FanCard />
+              </div>
             </div>
 
-            {/* Rating card and state right side */}
+            {/* Right column */}
             <div className="flex flex-col gap-3">
-              {/* rating card */}
+              {/* Rating — big card */}
               <div
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
-                style={{ minHeight: '380px' }}>
-                {/* Top — stars + rating */}
+                style={{ height: '380px' }}>
                 <div className="border-b border-gray-200 pb-6 mb-6">
                   <Stars filled={5} size={20} />
                   <p className="text-[80px] font-semibold text-gray-900 leading-none mt-2">
                     4.9<span className="text-gray-300">/5</span>
                   </p>
                 </div>
-
-                {/* Middle — description */}
                 <p className="text-gray-400 text-base font-semibold leading-relaxed flex-1">
                   We offer end-to-end creative solutions that make brands unforgettable.
                 </p>
-
-                {/* Bottom — button */}
                 <div className="mt-6">
                   <a
                     href="#"
@@ -238,14 +240,10 @@ export default function TechSection() {
                   </a>
                 </div>
               </div>
-              {/* state card */}
-              <div className="flex  justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2">
-                <p className="text-gray-400 text-xs uppercase tracking-widest">
-                  Worldwide base around the world
-                </p>
-                <p className="text-5xl font-black text-black leading-none">
-                  5<span className="text-gray-300">+</span>
-                </p>
+
+              {/* RightStateCard — small card */}
+              <div style={{ height: '160px' }}>
+                <RightStateCard />
               </div>
             </div>
           </div>

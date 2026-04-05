@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import FanCard from './FanCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,20 +34,42 @@ const logos = [
 ];
 
 // ── Star rating ───────────────────────────────────────────────────
-const Stars = ({ count = 5, filled = 5 }) => (
-  <div className="flex gap-0.5">
-    {Array.from({ length: count }).map((_, i) => (
-      <svg
-        key={i}
-        width="12"
-        height="12"
-        viewBox="0 0 12 12"
-        fill={i < filled ? '#f59e0b' : '#e5e7eb'}>
-        <path d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45L6 1z" />
-      </svg>
-    ))}
-  </div>
-);
+
+const Stars = ({
+  count = 5, // মোট star
+  filled = 5, // ভরা star
+  size = 6, // star size in px
+  filledColor = '#f59e0b', // ভরা star color
+  emptyColor = '#e5e7eb', // খালি star color
+}) => {
+  return (
+    <div className="flex gap-1">
+      {Array.from({ length: count }).map((_, i) => {
+        // fractional fill check
+        const isFull = i + 1 <= Math.floor(filled);
+        const isHalf = !isFull && i < filled;
+
+        return (
+          <svg
+            key={i}
+            width={size}
+            height={size}
+            viewBox="0 0 12 12"
+            fill={isFull ? filledColor : emptyColor}>
+            <path d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45L6 1z" />
+            {isHalf && (
+              <path
+                d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45L6 1z"
+                fill={filledColor}
+                style={{ clipPath: 'inset(0 50% 0 0)' }}
+              />
+            )}
+          </svg>
+        );
+      })}
+    </div>
+  );
+};
 
 // ── Testimonial card ──────────────────────────────────────────────
 const TestimonialCard = ({ name, role, text, stars = 4 }) => (
@@ -145,72 +168,84 @@ export default function TechSection() {
       {/* ── HERO ── */}
       <section
         ref={heroRef}
-        className="max-w-4xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        className="max-w-7xl mx-auto px-6 pt-16 pb-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left: image */}
-        <div className="hero-image relative">
+        <div className="hero-image  sticky top-0 self-start">
           <img
-            src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=600&q=80"
+            src="https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img6-500x600.webp"
             alt="Team"
-            className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-md"
+            className="  object-cover rounded-2xl shadow-md"
           />
         </div>
 
         {/* Right: copy + stats */}
         <div className="flex flex-col gap-6" ref={statsRef}>
-          <span className="hero-tag text-[10px] uppercase tracking-widest text-gray-400 font-medium">
-            Results
+          <span className="hero-tag text-[16px] uppercase tracking-widest  font-medium">
+            fun facts
           </span>
-          <h2 className="hero-title text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+          <h2
+            className="hero-title  text-2xl md:text-[45px] font-semibold text-gray-900 leading-tight"
+            style={{ fontFamily: 'funnel display, sens serif' }}>
             Consistently delivering impactful results through a perfect blend of design
             and functionality.
           </h2>
 
           {/* Stats row */}
           <div className="grid grid-cols-2 gap-3">
-            {/* 2k card */}
-            <div className="stats-card bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <p className="text-[10px] text-gray-400 leading-tight">
-                Successful projects completed
-              </p>
-              <p className="text-3xl font-extrabold text-gray-900 mt-1">2k</p>
+            {/* 2k card  + preview card left side card*/}
+            <div className="flex flex-col gap-3">
+              {/* 2k */}
+              <div className="stats-card flex  justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2">
+                <p className="text-lg text-gray-600 font-semibold  leading-tight">
+                  Successful projects completed
+                </p>
+                <p className="text-3xl flex items-center font-semibold text-gray-900 mt-1">
+                  2k <span className="text-gray-400">+</span>
+                </p>
+              </div>
+              {/* Preview card — full width */}
+              <FanCard />
             </div>
 
-            {/* Rating card */}
-            <div className="stats-card bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <Stars filled={5} />
-              <p className="text-3xl font-extrabold text-gray-900 mt-1">4.9/5</p>
-              <p className="text-[10px] text-gray-400 mt-1 leading-tight">
-                We offer end-to-end creative solutions that make brands unforgettable.
-              </p>
-            </div>
-
-            {/* Preview card — full width */}
-            <div className="stats-card col-span-2 bg-gray-900 rounded-2xl p-4 shadow-md text-white relative overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&q=70"
-                alt="project preview"
-                className="absolute inset-0 w-full h-full object-cover opacity-20"
-              />
-              <div className="relative z-10 flex items-end justify-between">
-                <div>
-                  <p className="text-xs text-gray-300">More than 2k+ projects</p>
-                  <p className="text-[10px] text-gray-400 leading-tight">
-                    completed — each crafted to deliver real-world results for.
+            {/* Rating card and state right side */}
+            <div className="flex flex-col gap-3">
+              {/* rating card */}
+              <div
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
+                style={{ minHeight: '380px' }}>
+                {/* Top — stars + rating */}
+                <div className="border-b border-gray-200 pb-6 mb-6">
+                  <Stars filled={5} size={20} />
+                  <p className="text-[80px] font-semibold text-gray-900 leading-none mt-2">
+                    4.9<span className="text-gray-300">/5</span>
                   </p>
                 </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl px-3 py-1.5 text-center border border-white/20">
-                  <p className="text-[9px] text-gray-300">
-                    Worldwide team around the world
-                  </p>
-                  <p className="text-xl font-black">5+</p>
+
+                {/* Middle — description */}
+                <p className="text-gray-400 text-base font-semibold leading-relaxed flex-1">
+                  We offer end-to-end creative solutions that make brands unforgettable.
+                </p>
+
+                {/* Bottom — button */}
+                <div className="mt-6">
+                  <a
+                    href="#"
+                    className="flex items-center gap-3 w-fit text-black font-bold tracking-widest hover:opacity-80 transition-opacity duration-300">
+                    <span className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 hover:-rotate-90">
+                      +
+                    </span>
+                    hire us now
+                  </a>
                 </div>
               </div>
-              {/* Verified badge */}
-              <div className="relative z-10 mt-3 inline-flex items-center gap-1.5 bg-white/10 backdrop-blur rounded-full px-3 py-1 text-[10px] text-white border border-white/20">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="#4ade80">
-                  <path d="M5 0L6.12 3.38H9.51L6.69 5.47 7.82 8.85 5 6.76 2.18 8.85 3.31 5.47.49 3.38H3.88L5 0z" />
-                </svg>
-                Verified now
+              {/* state card */}
+              <div className="flex  justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2">
+                <p className="text-gray-400 text-xs uppercase tracking-widest">
+                  Worldwide base around the world
+                </p>
+                <p className="text-5xl font-black text-black leading-none">
+                  5<span className="text-gray-300">+</span>
+                </p>
               </div>
             </div>
           </div>

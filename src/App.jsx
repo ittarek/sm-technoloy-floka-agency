@@ -26,19 +26,19 @@ function App() {
           <div
             className="sticky  z-0"
             style={{ top: 'calc(-100vh + 130px)' }}>
-            <Services />
+            {/* <Services /> */}
           </div>
 
           <div className="relative z-10">
             {/* <MarqueeSection /> */}
             <TechSection />
-            <Team />
-            <FAQSection />
-            <Testimonials />
-            <Contact />
-            <Insights />
+            {/* <Team /> */}
+            {/* <FAQSection /> */}
+            {/* <Testimonials /> */}
+            {/* <Contact /> */}
+            {/* <Insights /> */}
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>{' '}
       </div>
     </>

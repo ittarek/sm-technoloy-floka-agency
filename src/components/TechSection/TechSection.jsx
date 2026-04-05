@@ -4,87 +4,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FanCard from './FanCard';
 import { RightStateCard } from './RightStateCard';
 import FunHeroImage from './FunHeroImage';
+import { Stars } from './Stars';
+import { TestimonialCard } from './TestimonialCard';
+import { LeftSideSmallCard } from './LeftSideSmallCard';
+import { RightSideBigCard } from './RightSideBigCard';
+import { LogosSection } from './LogosSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ── Logo placeholder ──────────────────────────────────────────────
-const Logo = ({ color = '#000', label = 'Logoipsum', size = 'md' }) => {
-  const sizes = { sm: 'text-xs', md: 'text-sm', lg: 'text-base' };
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <rect x="2" y="2" width="7" height="7" rx="1.5" fill={color} />
-        <rect x="11" y="2" width="7" height="7" rx="1.5" fill={color} opacity=".5" />
-        <rect x="2" y="11" width="7" height="7" rx="1.5" fill={color} opacity=".3" />
-        <rect x="11" y="11" width="7" height="7" rx="1.5" fill={color} opacity=".7" />
-      </svg>
-      <span className={`font-semibold tracking-tight ${sizes[size]}`} style={{ color }}>
-        {label}
-      </span>
-    </div>
-  );
-};
 
-const logos = [
-  { color: '#1a1a1a', label: 'Logoipsum' },
-  { color: '#2563eb', label: 'LOGOIPSUM' },
-  { color: '#7c3aed', label: 'Logipsum' },
-  { color: '#111827', label: 'Logoipsum' },
-  { color: '#374151', label: 'logo ipsum' },
-  { color: '#dc2626', label: 'Logoipsum' },
-  { color: '#ea580c', label: 'Logoipsum' },
-];
 
-// ── Star rating ───────────────────────────────────────────────────
 
-const Stars = ({
-  count = 5, // মোট star
-  filled = 5, // ভরা star
-  size = 6, // star size in px
-  filledColor = '#f59e0b', // ভরা star color
-  emptyColor = '#e5e7eb', // খালি star color
-}) => {
-  return (
-    <div className="flex gap-1">
-      {Array.from({ length: count }).map((_, i) => {
-        // fractional fill check
-        const isFull = i + 1 <= Math.floor(filled);
-        const isHalf = !isFull && i < filled;
-
-        return (
-          <svg
-            key={i}
-            width={size}
-            height={size}
-            viewBox="0 0 12 12"
-            fill={isFull ? filledColor : emptyColor}>
-            <path d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45L6 1z" />
-            {isHalf && (
-              <path
-                d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45L6 1z"
-                fill={filledColor}
-                style={{ clipPath: 'inset(0 50% 0 0)' }}
-              />
-            )}
-          </svg>
-        );
-      })}
-    </div>
-  );
-};
-
-// ── Testimonial card ──────────────────────────────────────────────
-const TestimonialCard = ({ name, role, text, stars = 4 }) => (
-  <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex flex-col gap-3">
-    <div>
-      <p className="font-semibold text-sm text-gray-900">{name}</p>
-      <p className="text-xs text-gray-400">{role}</p>
-    </div>
-    <Stars filled={stars} />
-    <p className="text-xs text-gray-600 leading-relaxed">"{text}"</p>
-    <p className="text-[10px] text-gray-300 mt-auto">— GMMostrariasDirect</p>
-  </div>
-);
 
 // ── Main Section ──────────────────────────────────────────────────
 export default function TechSection() {
@@ -197,16 +127,7 @@ export default function TechSection() {
             {/* Left column */}
             <div className="flex flex-col gap-3">
               {/* 2k — small card */}
-              <div
-                className="stats-card flex justify-center items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100 gap-2"
-                style={{ height: '110px' }}>
-                <p className="text-lg text-gray-600 font-semibold leading-tight">
-                  Successful projects completed
-                </p>
-                <p className="text-3xl flex items-center font-semibold text-gray-900 mt-1">
-                  2k <span className="text-gray-400">+</span>
-                </p>
-              </div>
+              <LeftSideSmallCard />
 
               {/* FanCard — big card */}
               <div style={{ height: '380px' }}>
@@ -217,29 +138,7 @@ export default function TechSection() {
             {/* Right column */}
             <div className="flex flex-col gap-3">
               {/* Rating — big card */}
-              <div
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
-                style={{ height: '380px' }}>
-                <div className="border-b border-gray-200 pb-6 mb-6">
-                  <Stars filled={5} size={20} />
-                  <p className="text-[80px] font-semibold text-gray-900 leading-none mt-2">
-                    4.9<span className="text-gray-300">/5</span>
-                  </p>
-                </div>
-                <p className="text-gray-400 text-base font-semibold leading-relaxed flex-1">
-                  We offer end-to-end creative solutions that make brands unforgettable.
-                </p>
-                <div className="mt-6">
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 w-fit text-black font-bold tracking-widest hover:opacity-80 transition-opacity duration-300">
-                    <span className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 hover:-rotate-90">
-                      +
-                    </span>
-                    hire us now
-                  </a>
-                </div>
-              </div>
+              <RightSideBigCard />
 
               {/* RightStateCard — small card */}
               <div style={{ height: '160px' }}>
@@ -250,32 +149,8 @@ export default function TechSection() {
         </div>
       </section>
 
-      {/* ── LOGOS MARQUEE ── */}
-      <section
-        ref={logosRef}
-        className="logos-section py-8 overflow-hidden border-y border-gray-200 bg-white">
-        <p className="text-center text-[10px] uppercase tracking-widest text-gray-400 mb-5">
-          Trusted by
-        </p>
-        <div className="flex gap-12 animate-marquee whitespace-nowrap">
-          {[...logos, ...logos].map((l, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity">
-              <Logo {...l} />
-            </div>
-          ))}
-        </div>
-        <style>{`
-          @keyframes marquee {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-marquee {
-            animation: marquee 20s linear infinite;
-          }
-        `}</style>
-      </section>
+      {/* ── LOGOS section ── */}
+   <LogosSection/>
 
       {/* ── VIDEO / PHOTO BANNER ── */}
       <section ref={videoRef} className="max-w-4xl mx-auto px-6 py-10">

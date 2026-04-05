@@ -3,7 +3,6 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Services from './components/Services/Services';
-import MarqueeSection from './components/Marquee/Marquee';
 import Team from './components/Team/Team';
 import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
@@ -11,15 +10,15 @@ import Footer from './components/Footer/Footer';
 import TechSection from './components/TechSection/TechSection';
 import Insights from './components/Insights/insights';
 import FAQSection from './components/FAQSection/FAQSection';
-
+import './index.css';
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="pt-20">
-        <Hero />
+        {/* <Hero /> */}
         <About />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <Services />
         {/* <MarqueeSection /> */}
         <TechSection />

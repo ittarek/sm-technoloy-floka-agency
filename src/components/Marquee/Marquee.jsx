@@ -1,33 +1,59 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const Marquee = () => {
-  return (
-    <div className="relative mt-16 overflow-hidden">
-      {/* Left blur */}
-      <div
-        className="absolute left-0 top-0 h-full w-32 z-10"
-        style={{ background: 'linear-gradient(to right, #f5f5f3, transparent)' }}
-      />
-      {/* Right blur */}
-      <div
-        className="absolute right-0 top-0 h-full w-32 z-10"
-        style={{ background: 'linear-gradient(to left, #f5f5f3, transparent)' }}
-      />
+  const marqueeRef = useRef(null);
 
-      {/* Scrolling text */}
-      <div className="flex whitespace-nowrap animate-marquee">
-        {[...Array(4)].map((_, i) => (
-          <span
-            key={i}
-            className="text-black font-bold uppercase tracking-widest mx-8 shrink-0"
-            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}>
-            See how our team combines creativity, technology, and strategy See how our
-            team combines creativity, technology, and strategy See how our team combines
-            creativity, technology, and strategy See how our team combines creativity,
-            technology, and strategy
-            <span className="mx-8 text-gray-300">✦</span>
-          </span>
-        ))}
+  useEffect(() => {
+    const el = marqueeRef.current;
+
+    // duplicate content for seamless loop
+    const totalWidth = el.scrollWidth / 2;
+
+    gsap.to(el, {
+      x: `-=${totalWidth}`,
+      duration: 30, // 🔥 speed control (lower = faster)
+      ease: 'linear',
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth),
+      },
+    });
+  }, []);
+
+  const text = (
+    <>
+      <span className="mx-10 shrink-0">
+        See how our team combines creativity, technology, and strategy
+        <span className="mx-10 text-gray-300">✦</span>
+      </span>
+      <span className="mx-10 shrink-0">
+        See how our team combines creativity, technology, and strategy
+        <span className="mx-10 text-gray-300">✦</span>
+      </span>
+      <span className="mx-10 shrink-0">
+        See how our team combines creativity, technology, and strategy
+        <span className="mx-10 text-gray-300">✦</span>
+      </span>
+    </>
+  );
+
+  return (
+    <div
+      className="relative mt-16 overflow-hidden"
+      style={{
+        maskImage:
+          'linear-gradient(to right, transparent, black 50%, black 70%, transparent)',
+        WebkitMaskImage:
+          'linear-gradient(to right, transparent, black 50%, black 70%, transparent)',
+      }}>
+      <div
+        ref={marqueeRef}
+        className="flex whitespace-nowrap text-black font-semibold tracking-widest text-[clamp(40px,6vw,90px)]">
+        {/* First copy */}
+        {text}
+        {/* Duplicate copy */}
+        {text}
       </div>
     </div>
   );

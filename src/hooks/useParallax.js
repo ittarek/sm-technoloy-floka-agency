@@ -10,6 +10,9 @@ export function useParallax(strength = 20) {
     const target = targetRef.current;
     if (!container || !target) return;
 
+    // default scale
+    gsap.set(target, { scale: 1.2 });
+
     const handleMouseMove = e => {
       const rect = container.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -18,7 +21,8 @@ export function useParallax(strength = 20) {
       gsap.to(target, {
         x: x * strength,
         y: y * strength,
-        duration: 1.5,
+        scale: 1.3, // hover zoom
+        duration: 0.8,
         ease: 'power2.out',
       });
     };
@@ -27,7 +31,8 @@ export function useParallax(strength = 20) {
       gsap.to(target, {
         x: 0,
         y: 0,
-        duration: 1.5,
+        scale: 1.2, // back to normal
+        duration: 0.8,
         ease: 'power2.out',
       });
     };

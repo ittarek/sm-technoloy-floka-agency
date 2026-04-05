@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-export function SkillBar({ label, value, isActive = false, isLast = false }) {
+export function SkillBar({ label, value, isActive, isLast }) {
   const barRef = useRef(null);
   const triggered = useRef(false);
 
@@ -27,15 +27,15 @@ export function SkillBar({ label, value, isActive = false, isLast = false }) {
   }, [value]);
 
   return (
-    <div className="relative rounded-xl -mb-2">
+    <div className="relative rounded-xl -mb-3">
       <div
         ref={barRef}
         className={`flex items-center justify-between px-4 py-3 rounded-xl
           ${
             isActive
-              ? 'bg-black text-white'
+              ? 'bg-black text-white z-40'
               : isLast
-                ? 'bg-transparent border border-gray-300 text-gray-400'
+                ? ' border border-gray-300 text-gray-400 z-50 bg-white'
                 : 'bg-[#F5F5F5] text-black'
           }`}
         style={{ width: '0%', minWidth: 'fit-content' }}>

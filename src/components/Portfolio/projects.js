@@ -1,0 +1,48 @@
+export 
+const projects = [
+  {
+    id: 1,
+    title: 'Aldan Branding',
+    year: '2025',
+    category: 'branding, ux',
+    size: 'half',
+    img: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img5-655x450.webp',
+    icon: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon7.svg',
+  },
+  {
+    id: 2,
+    title: 'Aldan Branding',
+    year: '2025',
+    category: 'branding, ux',
+    size: 'half',
+    img: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home3-accordion1-655x450.jpg',
+    icon: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon6.svg',
+  },
+  {
+    id: 3,
+    title: 'Aldan Branding',
+    year: '2025',
+    category: 'branding, module, ux',
+    size: 'full',
+    img: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img3-1320x600.webp',
+    icon: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon5.svg',
+  },
+  {
+    id: 4,
+    title: 'Aldan Branding',
+    year: '2025',
+    category: 'branding, product',
+    size: 'half',
+    img: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img2-655x450.webp',
+    icon: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon4.svg',
+  },
+  {
+    id: 5,
+    title: 'Aldan Branding',
+    year: '2025',
+    category: 'branding, ux',
+    size: 'half',
+    img: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home1-bg-img1-655x450.webp',
+    icon: 'https://floka.casethemes.net/wp-content/uploads/2025/05/home-1-icon3.svg',
+  },
+];

@@ -11,13 +11,15 @@ const skills = [
 
 export const SocialSection = ({ col3Ref, col4Ref, className }) => {
   return (
-    <div ref={col3Ref} className={`flex flex-col gap-6 ${className}`}>
+    <div ref={col3Ref} className={`flex flex-col justify-between gap-6 ${className}`}>
       {/* Social Links */}
       <div
-        className="bg-white rounded-3xl p-6 w-full flex flex-col justify-start"
-        style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}>
-        <p className="text-gray-400 text-xs tracking-widest mb-1">Follow us</p>
-        <p className="text-black font-bold text-xl mb-8">For check updates</p>
+        className="bg-white rounded-3xl p-6 w-full flex flex-col justify-between min-h-62.5"
+        style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 5px 15px' }}>
+        <div>
+          <p className="text-gray-400 text-md tracking-widest mb-1">Follow us</p>
+          <p className="text-black font-bold text-xl mb-8">For check updates</p>
+        </div>
         <div className="flex flex-wrap gap-2">
           {socialLinks.map(link => (
             <a
@@ -33,8 +35,8 @@ export const SocialSection = ({ col3Ref, col4Ref, className }) => {
       {/* Impressions */}
       <div
         ref={col4Ref}
-        className="bg-white rounded-3xl p-6 w-full flex flex-col justify-start "
-        style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}>
+        className="bg-white rounded-3xl p-6 w-full flex flex-col min-h-62.5 justify-between"
+        style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 5px 15px' }}>
         <p className="text-gray-400 text-xs tracking-widest mb-6">Impressions</p>
 
         <div className="flex flex-col gap-2">

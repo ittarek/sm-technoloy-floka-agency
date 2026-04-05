@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import OverlyCard from './OverlyCard';
 import Marquee from '../Marquee/Marquee';
-import { SkillBar } from './SkillBar';
 import { BigHeading } from './BigHeading';
 import { Stats } from './Stats';
 import { SocialSection } from './SocialSection';
@@ -72,7 +71,7 @@ export default function About() {
           {/* Col 1 — Stats */}
           <div
             className="md:col-span-2 rounded-3xl "
-            style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}>
+            style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 5px 15px' }}>
             <Stats
               col1Ref={col1Ref}
               className="bg-white rounded-3xl  p-6 h-full flex flex-col justify-between "
@@ -89,7 +88,7 @@ export default function About() {
 
           {/* Col 3 — Social + Skills */}
           <div className="md:col-span-2 rounded-3xl">
-            <SocialSection col3Ref={col3Ref} col4Ref={col4Ref} className="" />
+            <SocialSection col3Ref={col3Ref} col4Ref={col4Ref}  />
           </div>
         </div>
         {/* Marquee */}

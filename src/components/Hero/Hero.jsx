@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useParallax } from '../../hooks/useParallax';
-import { BlurText } from './BlurText';
 import { RightCard } from './RightCard';
 
 export default function Hero() {
@@ -69,7 +68,7 @@ export default function Hero() {
             <h1
               ref={flokaRef}
               className=" md:text-[250px] text-[80px] font-normal capitalize leading-none tracking-[-7.5px] text-white"
-              style={{ fontFamily: 'Funnel_Display, sans-serif' }}>
+              style={{ fontFamily: 'Funnel Display, sans-serif' }}>
               Floka
             </h1>
             <p

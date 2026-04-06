@@ -12,6 +12,7 @@ import Insights from './components/Insights/insights';
 import FAQSection from './components/FAQSection/FAQSection';
 import './index.css';
 import Services from './components/Services/Services';
+import { Awards } from './components/Awards/Awards';
 
 function App() {
   return (
@@ -32,8 +33,9 @@ function App() {
           <div className="relative z-10">
             {/* <MarqueeSection /> */}
             {/* <TechSection /> */}
-            <Contact />
-            {/* <Team /> */}
+            {/* <Contact /> */}
+            {/* <Awards/> */}
+            <Team />
             {/* <FAQSection /> */}
             {/* <Testimonials /> */}
             {/* <Insights /> */}

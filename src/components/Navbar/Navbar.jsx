@@ -4,6 +4,8 @@ import { navItems } from './navItems';
 import { MobileFullMenu } from './MobileFullMenu';
 import { LogoIcon } from '../../icons/logoIcon';
 import { RotatingIcon } from '../Tools/RotatingIcon';
+import { MobileDropdown } from './MobileDropdown';
+import { MobileNav } from './HamburgerMenu';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -233,7 +235,7 @@ export default function Navbar() {
           {/* Hamburger */}
 
           <button
-            className=" hidden relative cursor-pointer p-2 md:flex items-center gap-2"
+            className="hidden relative cursor-pointer p-2 md:flex items-center gap-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -291,6 +293,8 @@ export default function Navbar() {
               })}
             </div>
           </button>
+          {/* ✅ Mobile hamburger — নতুন */}
+          <MobileNav iconColor="black" />
         </div>
       </nav>{' '}
       {/* Full Screen Menu */}
@@ -395,6 +399,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
     </>
   );
 }

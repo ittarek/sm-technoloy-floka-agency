@@ -17,10 +17,10 @@ import { Awards } from './components/Awards/Awards';
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="pt-20">
         {/* <Hero /> */}
-        {/* <About /> */}
+        <About />
         {/* <Portfolio /> */}
         {/* Sticky wrapper */}
         <div className="relative">
@@ -36,6 +36,7 @@ function App() {
             {/* <Contact /> */}
             {/* <Awards/> */}
             <Team />
+            {/* to do for 4 section  */}
             {/* <FAQSection /> */}
             {/* <Testimonials /> */}
             {/* <Insights /> */}

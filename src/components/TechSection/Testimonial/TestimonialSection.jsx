@@ -30,20 +30,23 @@ export default function TestimonialSection() {
 
   return (
     <section ref={sectionRef} className="max-w-7xl mx-auto px-6 pb-16 pt-11">
-      {/* Top row — label left, heading right */}
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-12">
-        <p className="text-xs uppercase tracking-widest text-gray-400 border-b border-gray-200 pb-4 md:w-48 shrink-0">
-          user feedbacks
-        </p>
+      {/* Top row */}
+      <div className="mb-12">
+        {/* Full width border with label */}
+        <div className="border-b border-gray-200 pb-4 mb-8">
+          <p className="text-md uppercase tracking-widest">user feedbacks</p>
+        </div>
 
-        {/* Heading — right side, lightspeed animation */}
-        <h2
-          ref={headingRef}
-          className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl text-left">
-          Accelerating growth, and unlocking new potential.{' '}
-          <span className="inline-flex gap-1 align-middle text-2xl">🌑🌒🌓</span> Let's
-          build your brand—together.
-        </h2>
+        {/* Heading — right side */}
+        <div className="flex justify-end">
+          <h2
+            ref={headingRef}
+            className="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight max-w-xl text-left">
+            Accelerating growth, and unlocking new potential.{' '}
+            <span className="inline-flex gap-1 align-middle text-2xl">🌑🌒🌓</span> Let's
+            build your brand—together.
+          </h2>
+        </div>
       </div>
 
       {/* Testimonial columns */}

@@ -31,11 +31,11 @@ function App() {
 
           <div className="relative z-10">
             {/* <MarqueeSection /> */}
-            <TechSection />
+            {/* <TechSection /> */}
+            <Contact />
             {/* <Team /> */}
             {/* <FAQSection /> */}
             {/* <Testimonials /> */}
-            {/* <Contact /> */}
             {/* <Insights /> */}
           </div>
           {/* <Footer /> */}

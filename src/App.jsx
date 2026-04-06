@@ -22,30 +22,28 @@ function App() {
         <Hero />
         <About />
         <Portfolio />
-        {/* Sticky wrapper */}
-        <div className="relative">
-          <div
-            className="sticky  z-0"
-            style={{ top: 'calc(-100vh + 130px)' }}>
-            <Services />
+
+        <div style={{ position: 'relative' }}>
+          {/* ✅ Sticky wrapper */}
+          <div style={{ height: '200vh' }}>
+            <div style={{ position: 'sticky', top: 0, height: '100vh', zIndex: 0 }}>
+              <Services />
+            </div>
           </div>
 
-          <div className="relative z-10">
-            {/* <MarqueeSection /> */}
+          {/* ✅ বাকি content — Services এর উপর দিয়ে আসবে */}
+          <div style={{ position: 'relative', zIndex: 10, background: '#f5f5f3' }}>
             <TechSection />
             <Contact />
-            <Awards/>
+            <Awards />
             <Team />
-            {/* to do for 4 section  */}
             <FAQSection />
-            {/* <Testimonials /> */}
             <Insights />
+            <Footer />
           </div>
-          <Footer />
-        </div>{' '}
+        </div>
       </div>
     </>
   );
 }
-
 export default App;

@@ -132,7 +132,7 @@ export default function Team() {
   const currentTeam = teams[activeTab];
 
   return (
-    <section className="bg-[#f5f5f3] px-4 md:px-8 py-16 w-full max-w-7xl mx-auto">
+    <section className=" px-4 md:px-8 py-16 w-full max-w-7xl mx-auto">
       <div className="bg-white rounded-3xl p-8 md:p-10">
         <div className="flex flex-col md:flex-row gap-10">
           {/* ─── Left ─── */}

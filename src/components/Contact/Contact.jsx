@@ -69,7 +69,7 @@ export default function ContactSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative  flex items-center overflow-hidden"
       style={{ background: '#111111' }}>
       {/* Grain overlay */}
       <div

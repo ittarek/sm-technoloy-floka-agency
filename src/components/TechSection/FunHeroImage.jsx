@@ -190,7 +190,7 @@ export default function HeroImage() {
   return (
     <div
       ref={containerRef}
-      className="sticky top-20 self-start rounded-2xl overflow-hidden shadow-xl"
+      className="md:sticky mx-auto top-20 self-start rounded-2xl overflow-hidden shadow-xl"
       style={{ width: '90%', height: '580px' }}
     />
   );

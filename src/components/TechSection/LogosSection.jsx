@@ -21,7 +21,7 @@ const logos = [
 export const LogosSection = () => {
   return (
     <section className="max-w-7xl mx-auto pt-11">
-      <div className="flex justify-between items-center pb-6 px-2 md:px-0 ">
+      <div className="flex justify-between items-center pb-6 px-2 md:px-0 text-gray-600 ">
         <p>Happy users</p>
         <p>©2025 Case-Themes™ Studio</p>
       </div>

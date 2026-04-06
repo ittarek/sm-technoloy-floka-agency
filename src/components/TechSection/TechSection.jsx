@@ -4,17 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FanCard from './FanCard';
 import { RightStateCard } from './RightStateCard';
 import FunHeroImage from './FunHeroImage';
-import { Stars } from './Stars';
-import { TestimonialCard } from './TestimonialCard';
 import { LeftSideSmallCard } from './LeftSideSmallCard';
 import { RightSideBigCard } from './RightSideBigCard';
 import { LogosSection } from './LogosSection';
+import { VIDEOSection } from './VIDEOSection';
+import TestimonialSection from './Testimonial/TestimonialSection';
 
 gsap.registerPlugin(ScrollTrigger);
-
-
-
-
 
 // ── Main Section ──────────────────────────────────────────────────
 export default function TechSection() {
@@ -150,66 +146,13 @@ export default function TechSection() {
       </section>
 
       {/* ── LOGOS section ── */}
-   <LogosSection/>
+      <LogosSection />
 
       {/* ── VIDEO / PHOTO BANNER ── */}
-      <section ref={videoRef} className="max-w-4xl mx-auto px-6 py-10">
-        <div className="video-wrap relative rounded-3xl overflow-hidden shadow-lg h-64 md:h-80">
-          <img
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=80"
-            alt="Team at work"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-          {/* Play button */}
-          <button className="absolute bottom-5 left-5 flex items-center gap-2 bg-white/90 backdrop-blur rounded-full px-4 py-2 text-xs font-semibold text-gray-900 shadow hover:bg-white transition-colors">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-              <polygon points="3,1 13,7 3,13" />
-            </svg>
-            Play Video
-          </button>
-        </div>
-      </section>
+      <VIDEOSection videoRef={videoRef} />
 
       {/* ── CTA + TESTIMONIALS ── */}
-      <section ref={ctaRef} className="max-w-4xl mx-auto px-6 pb-16">
-        <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-4">
-          With Milicious
-        </p>
-        <h2 className="cta-text text-2xl md:text-3xl font-bold text-gray-900 mb-8 leading-tight max-w-md">
-          Accelerating growth, and unlocking new potential.{' '}
-          <span className="inline-flex gap-1 align-middle text-xl">🌑🌒🌓</span> Let's
-          build your brand—together.
-        </h2>
-
-        {/* Testimonial grid */}
-        <div ref={testimonialsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="tcard">
-            <TestimonialCard
-              name="Nicolani Arlington"
-              role="3 reviews"
-              stars={5}
-              text="As we continued to use our tool and found more use cases, our feature requests quickly found their way into their backlog."
-            />
-          </div>
-          <div className="tcard">
-            <TestimonialCard
-              name="Julian Tilaumont"
-              role="2 reviews"
-              stars={4}
-              text="As we continued to use our tool and found more use cases, our feature requests quickly found their way into their backlog."
-            />
-          </div>
-          <div className="tcard">
-            <TestimonialCard
-              name="Felpa Li Hoathorne"
-              role="3 reviews"
-              stars={5}
-              text="As we continued to use our tool and found more use cases, our feature requests quickly found their way into their backlog."
-            />
-          </div>
-        </div>
-      </section>
+ <TestimonialSection/>
     </div>
   );
 }

@@ -13,3 +13,20 @@
 .animate-marquee {
   animation: marquee 3s linear infinite;
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+}

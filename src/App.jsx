@@ -19,29 +19,29 @@ function App() {
     <>
       <Navbar />
       <div className="pt-20">
-        {/* <Hero /> */}
+        <Hero />
         <About />
-        {/* <Portfolio /> */}
+        <Portfolio />
         {/* Sticky wrapper */}
         <div className="relative">
           <div
             className="sticky  z-0"
             style={{ top: 'calc(-100vh + 130px)' }}>
-            {/* <Services /> */}
+            <Services />
           </div>
 
           <div className="relative z-10">
             {/* <MarqueeSection /> */}
-            {/* <TechSection /> */}
-            {/* <Contact /> */}
-            {/* <Awards/> */}
+            <TechSection />
+            <Contact />
+            <Awards/>
             <Team />
             {/* to do for 4 section  */}
-            {/* <FAQSection /> */}
+            <FAQSection />
             {/* <Testimonials /> */}
-            {/* <Insights /> */}
+            <Insights />
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </div>{' '}
       </div>
     </>

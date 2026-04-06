@@ -31,12 +31,13 @@ function App() {
             </div>
           </div>
 
-          {/* ✅ বাকি content — Services এর উপর দিয়ে আসবে */}
+
           <div style={{ position: 'relative', zIndex: 10, background: '#f5f5f3' }}>
             <TechSection />
             <Contact />
             <Awards />
             <Team />
+            {/* to do */}
             <FAQSection />
             <Insights />
             <Footer />
